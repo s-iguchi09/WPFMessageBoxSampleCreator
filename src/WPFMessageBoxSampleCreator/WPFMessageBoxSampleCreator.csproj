@@ -11,8 +11,8 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <Authors>s-iguchi</Authors>
     <Company>s-iguchiApps</Company>
-    <AssemblyVersion>1.0.0.9</AssemblyVersion>
-    <FileVersion>1.0.0.9</FileVersion>
+    <AssemblyVersion>1.0.0.10</AssemblyVersion>
+    <FileVersion>1.0.0.10</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

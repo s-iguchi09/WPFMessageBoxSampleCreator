@@ -26,6 +26,7 @@ jobs:
         with:
           dotnet-version: "10.0.x"
 
+      # slnx のままで OK
       - name: Restore
         run: dotnet restore src/WPFMessageBoxSampleCreator.slnx
 
@@ -39,12 +40,28 @@ jobs:
         shell: powershell
         run: |
           mkdir publish
-      
-          $src8 = Get-ChildItem "src/WPFMessageBoxSampleCreator/bin/Release/net8.0-windows/publish" -Directory | Select-Object -First 1
+
+          # --- NET 8 ---
+          $pub8 = "src/WPFMessageBoxSampleCreator/bin/Release/net8.0-windows"
+          $src8 = Get-ChildItem $pub8 -Recurse -Directory | Where-Object { $_.Name -eq "publish" } | Select-Object -First 1
+
+          if (-not $src8) {
+            Write-Error "Publish folder for net8.0-windows not found under $pub8"
+            exit 1
+          }
+
           robocopy $src8.FullName publish/net8.0-windows /E
           if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
-      
-          $src10 = Get-ChildItem "src/WPFMessageBoxSampleCreator/bin/Release/net10.0-windows/publish" -Directory | Select-Object -First 1
+
+          # --- NET 10 ---
+          $pub10 = "src/WPFMessageBoxSampleCreator/bin/Release/net10.0-windows"
+          $src10 = Get-ChildItem $pub10 -Recurse -Directory | Where-Object { $_.Name -eq "publish" } | Select-Object -First 1
+
+          if (-not $src10) {
+            Write-Error "Publish folder for net10.0-windows not found under $pub10"
+            exit 1
+          }
+
           robocopy $src10.FullName publish/net10.0-windows /E
           if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
 
