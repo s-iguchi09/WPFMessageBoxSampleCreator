@@ -42,11 +42,14 @@ jobs:
               /p:PublishProfile=net10.0-windows
 
       - name: Merge publish outputs
+        shell: powershell
         run: |
           mkdir publish
-          robocopy src/WPFMessageBoxSampleCreator/bin/Release/net8.0-windows/publish publish/net8.0-windows /E
-          robocopy src/WPFMessageBoxSampleCreator/bin/Release/net10.0-windows/publish publish/net10.0-windows /E
-        shell: powershell
+          robocopy WPFMessageBoxSampleCreator/bin/Release/net8.0-windows/publish publish/net8.0-windows /E
+          if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
+
+          robocopy WPFMessageBoxSampleCreator/bin/Release/net10.0-windows/publish publish/net10.0-windows /E
+          if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
 
       - name: Zip all outputs
         run: |
