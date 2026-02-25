@@ -27,7 +27,7 @@ jobs:
           dotnet-version: "10.0.x"
 
       - name: Restore
-        run: dotnet restore src/WPFMessageBoxSampleCreator/WPFMessageBoxSampleCreator.slnx
+        run: dotnet restore src/WPFMessageBoxSampleCreator.slnx
 
       - name: Publish (.NET 8, using pubxml)
         run: dotnet publish src/WPFMessageBoxSampleCreator/WPFMessageBoxSampleCreator.csproj -c Release -f net8.0-windows /p:PublishProfile=net8.0-windows
@@ -39,10 +39,13 @@ jobs:
         shell: powershell
         run: |
           mkdir publish
-          robocopy src/WPFMessageBoxSampleCreator/bin/Release/net8.0-windows/publish/win-x64 publish/net8.0-windows/win-x64 /E
+      
+          $src8 = Get-ChildItem "src/WPFMessageBoxSampleCreator/bin/Release/net8.0-windows/publish" -Directory | Select-Object -First 1
+          robocopy $src8.FullName publish/net8.0-windows /E
           if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
-
-          robocopy src/WPFMessageBoxSampleCreator/bin/Release/net10.0-windows/publish/win-x64 publish/net10.0-windows/win-x64 /E
+      
+          $src10 = Get-ChildItem "src/WPFMessageBoxSampleCreator/bin/Release/net10.0-windows/publish" -Directory | Select-Object -First 1
+          robocopy $src10.FullName publish/net10.0-windows /E
           if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
 
       - name: Zip all outputs
