@@ -45,10 +45,10 @@ jobs:
         shell: powershell
         run: |
           mkdir publish
-          robocopy WPFMessageBoxSampleCreator/bin/Release/net8.0-windows/publish/win-x64 publish/net8.0-windows/win-x64 /E
+          robocopy src/WPFMessageBoxSampleCreator/bin/Release/net8.0-windows/publish/win-x64 publish/net8.0-windows/win-x64 /E
           if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
 
-          robocopy WPFMessageBoxSampleCreator/bin/Release/net10.0-windows/publish/win-x64 publish/net10.0-windows/win-x64 /E
+          robocopy src/WPFMessageBoxSampleCreator/bin/Release/net10.0-windows/publish/win-x64 publish/net10.0-windows/win-x64 /E
           if ($LASTEXITCODE -ge 8) { exit $LASTEXITCODE }
 
       - name: Zip all outputs
