@@ -27,7 +27,7 @@ jobs:
           dotnet-version: "10.0.x"
 
       - name: Restore
-        run: dotnet restore src/WPFMessageBoxSampleCreator.sln
+        run: dotnet restore src/WPFMessageBoxSampleCreator.slnx
 
       - name: Publish (.NET 8, using pubxml)
         run: dotnet publish src/WPFMessageBoxSampleCreator/WPFMessageBoxSampleCreator.csproj `
