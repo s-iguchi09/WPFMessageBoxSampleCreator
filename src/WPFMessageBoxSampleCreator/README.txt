@@ -1,11 +1,11 @@
-# WPFMessageBoxSampleCreator
+﻿WPFMessageBoxSampleCreator
 
-## 概要
+【概要】
 このアプリは、アプリに入力した文字列を MessageBox で表示するシンプルな WPF アプリケーションです。
 どのように MessageBox されるのかを確認することができます。
 
----
+----------------------------------------
 
-## 主な機能
+【主な機能】
 - テキストボックス、コンボボックスに任意の値を入力
-- ボタンをクリックすると `MessageBox.Show()` で入力内容を表示
+- ボタンをクリックすると MessageBox.Show() で入力内容を表示

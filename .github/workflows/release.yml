@@ -31,10 +31,10 @@ jobs:
         run: dotnet restore src/WPFMessageBoxSampleCreator.slnx
 
       - name: Publish (.NET 8, using pubxml)
-        run: dotnet publish src/WPFMessageBoxSampleCreator/WPFMessageBoxSampleCreator.csproj -c Release -f net8.0-windows /p:PublishProfile=net8.0-windows
+        run: dotnet publish src/WPFMessageBoxSampleCreator/WPFMessageBoxSampleCreator.csproj -c Release -f net8.0-windows /p:PublishProfile=net8.0-windows.pubxml
 
       - name: Publish (.NET 10, using pubxml)
-        run: dotnet publish src/WPFMessageBoxSampleCreator/WPFMessageBoxSampleCreator.csproj -c Release -f net10.0-windows /p:PublishProfile=net10.0-windows
+        run: dotnet publish src/WPFMessageBoxSampleCreator/WPFMessageBoxSampleCreator.csproj -c Release -f net10.0-windows /p:PublishProfile=net10.0-windows.pubxml
 
       - name: Merge publish outputs
         shell: powershell
