@@ -1,6 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Title>WPFMessageBoxSampleCreator</Title>
+    <Description>generating sample MessageBox for WPF.</Description>
+    <Authors>s-iguchi</Authors>
+    <Company>s-iguchi</Company>
+    <Product>WPFMessageBoxSampleCreator</Product>
     <OutputType>WinExe</OutputType>
     <TargetFrameworks>net10.0-windows;net8.0-windows</TargetFrameworks>
       <Optimize>true</Optimize>
@@ -9,19 +14,15 @@
       <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>icon.ico</ApplicationIcon>
-    <Authors>s-iguchi</Authors>
-    <Company>s-iguchiApps</Company>
+    <Version>1.0.0</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
+
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Include="icon.ico" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3800.47" />
