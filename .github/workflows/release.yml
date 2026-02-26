@@ -69,9 +69,10 @@ jobs:
 
       - name: Zip all outputs
         run: |
-          powershell Compress-Archive -Path publish/* -DestinationPath WPFMessageBoxSampleCreator.zip
+          $version="${{ github.ref_name }}"
+          powershell Compress-Archive -Path publish/* -DestinationPath "WPFMessageBoxSampleCreator-$version.zip"
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: WPFMessageBoxSampleCreator.zip
+          files: "WPFMessageBoxSampleCreator-${{ github.ref_name }}.zip"
