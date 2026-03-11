@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:about="clr-namespace:WPFMessageBoxSampleCreator.Features.About"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:home="clr-namespace:WPFMessageBoxSampleCreator.Features.Home"
     xmlns:interfaces="clr-namespace:WPFMessageBoxSampleCreator.Core.Interfaces"
     xmlns:local="clr-namespace:WPFMessageBoxSampleCreator"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -18,12 +17,11 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
-        <home:HomeViewModel x:Key="HomeViewModel" />
         <messagebox:MessageBoxSampleCreatorViewModel x:Key="MessageBoxSampleCreatorViewModel" />
-        <about:AboutViewModel x:Key="AboutViewModel" />
+        <!--<about:AboutViewModel x:Key="AboutViewModel" />-->
     </Window.Resources>
-
-    <Grid>
+    <messagebox:MessageBoxSampleCreatorControl DataContext="{StaticResource MessageBoxSampleCreatorViewModel}" />
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
             <ColumnDefinition Width="*" />
@@ -34,7 +32,6 @@
             SelectedIndex="0"
             SelectionMode="Single">
             <ListBox.Items>
-                <ListBoxItem Content="{StaticResource HomeViewModel}" />
                 <ListBoxItem Content="{StaticResource MessageBoxSampleCreatorViewModel}" />
                 <ListBoxItem Content="{StaticResource AboutViewModel}" />
             </ListBox.Items>
@@ -44,9 +41,6 @@
             BorderBrush="{Binding BorderBrush, ElementName=ContentsSelector}"
             BorderThickness="1">
             <Border.Resources>
-                <DataTemplate DataType="{x:Type home:HomeViewModel}">
-                    <home:HomeControl DataContext="{StaticResource HomeViewModel}" />
-                </DataTemplate>
                 <DataTemplate DataType="{x:Type messagebox:MessageBoxSampleCreatorViewModel}">
                     <messagebox:MessageBoxSampleCreatorControl DataContext="{StaticResource MessageBoxSampleCreatorViewModel}" />
                 </DataTemplate>
@@ -56,5 +50,5 @@
             </Border.Resources>
             <ContentControl Content="{Binding SelectedItem.Content, ElementName=ContentsSelector}" />
         </Border>
-    </Grid>
+    </Grid>-->
 </Window>
