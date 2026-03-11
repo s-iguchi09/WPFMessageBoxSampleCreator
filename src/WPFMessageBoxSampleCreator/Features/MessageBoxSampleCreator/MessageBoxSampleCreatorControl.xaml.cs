@@ -8,7 +8,8 @@ namespace WPFMessageBoxSampleCreator.Features.MessageBoxSampleCreator
     /// </summary>
     public partial class MessageBoxSampleCreatorControl : UserControl
     {
-        private MessageBoxSampleCreatorViewModel _viewModel;
+        private MessageBoxSampleCreatorViewModel? _viewModel = null;
+        private MessageBoxSampleCreatorViewModel ViewModel => _viewModel ??= (MessageBoxSampleCreatorViewModel)DataContext;
         public MessageBoxSampleCreatorControl()
         {
             InitializeComponent();
@@ -17,8 +18,10 @@ namespace WPFMessageBoxSampleCreator.Features.MessageBoxSampleCreator
 
         private void ShowMessageBox_Click(object sender, RoutedEventArgs e)
         {
-            
-            MessageBox.Show(_viewModel.MessageBoxText, _viewModel.Caption, _viewModel.MessageBoxButton, _viewModel.MessageBoxImage, _viewModel.MessageBoxResult, _viewModel.MessageBoxOptions);
+            if (ViewModel is null)
+                return;
+
+            MessageBox.Show(ViewModel.MessageBoxText, ViewModel.Caption, ViewModel.MessageBoxButton, ViewModel.MessageBoxImage, ViewModel.MessageBoxResult, ViewModel.MessageBoxOptions);
         }
 
     }

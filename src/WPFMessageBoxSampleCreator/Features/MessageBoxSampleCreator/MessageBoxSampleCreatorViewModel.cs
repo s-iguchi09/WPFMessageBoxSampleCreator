@@ -1,14 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Windows;
-using WPFMessageBoxSampleCreator.Core.Interfaces;
 
 namespace WPFMessageBoxSampleCreator.Features.MessageBoxSampleCreator
 {
-    public class MessageBoxSampleCreatorViewModel : INotifyPropertyChanged, IListBoxItem
+    public class MessageBoxSampleCreatorViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged = delegate { };
-
-        public string Name => "MessageBox";
 
         public override string ToString()
         {
@@ -23,7 +20,7 @@ namespace WPFMessageBoxSampleCreator.Features.MessageBoxSampleCreator
         {
             { "None", MessageBoxImage.None },
             { "Error", MessageBoxImage.Error },
-            {  "Hand", MessageBoxImage.Hand },
+            { "Hand", MessageBoxImage.Hand },
             { "Stop", MessageBoxImage.Stop },
             { "Question", MessageBoxImage.Question },
             { "Exclamation", MessageBoxImage.Exclamation },
