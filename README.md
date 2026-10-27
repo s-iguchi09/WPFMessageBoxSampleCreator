@@ -23,7 +23,7 @@ The [website](https://s-iguchi09.github.io/apps/wpf-messagebox-sample-creator.ht
 ### How to Use
 
 1. Download the latest ZIP from the [Releases](https://github.com/s-iguchi09/WPFMessageBoxSampleCreator/releases) page
-2. Extract it and run `WPFMessageBoxSampleCreator.exe` in the `net8.0-windows/win-x64` or `net10.0-windows/win-x64` folder, matching the installed runtime
+2. Extract it and run `WPFMessageBoxSampleCreator.exe` in the `WPFMessageBoxSampleCreator/Release/net8.0-windows/win-x64` or `WPFMessageBoxSampleCreator/Release/net10.0-windows/win-x64` folder, matching the installed runtime
 3. Enter the message text and caption, and choose the button, icon, default result, and options
 4. Click the button to show the `MessageBox`
 
@@ -65,7 +65,7 @@ dotnet build src/WPFMessageBoxSampleCreator.slnx
 ### 使い方
 
 1. [Releases](https://github.com/s-iguchi09/WPFMessageBoxSampleCreator/releases) ページから最新の ZIP をダウンロード
-2. 展開し、導入済みのランタイムに合わせて、`net8.0-windows/win-x64` または `net10.0-windows/win-x64` フォルダーの `WPFMessageBoxSampleCreator.exe` を実行
+2. 展開し、導入済みのランタイムに合わせて、`WPFMessageBoxSampleCreator/Release/net8.0-windows/win-x64` または `WPFMessageBoxSampleCreator/Release/net10.0-windows/win-x64` フォルダーの `WPFMessageBoxSampleCreator.exe` を実行
 3. 本文とタイトルを入力し、ボタン・アイコン・既定の結果・オプションを選択
 4. ボタンをクリックして `MessageBox` を表示
 
